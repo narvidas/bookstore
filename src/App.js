@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import ApolloClient, { InMemoryCache } from "apollo-boost";
+import { Create } from "./views/create";
+import { Edit } from "./views/edit";
+import { List } from "./views/list";
+import { ApolloProvider } from "@apollo/react-hooks";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const cache = new InMemoryCache();
+const client = new ApolloClient({
+  uri: "http://localhost:4567",
+  cache
+});
+
+const App = () => (
+  <ApolloProvider client={client}>
+    <Router>
+      <Switch>
+        <Route path="/list" exact component={List} />
+        <Route path="/edit/:id" exact component={Edit} />
+        <Route path="/create/:id" component={Create} />
+        <Redirect exact from="/" to="list" />
+      </Switch>
+    </Router>
+  </ApolloProvider>
+);
 
 export default App;
