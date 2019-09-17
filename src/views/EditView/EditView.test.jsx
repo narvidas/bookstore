@@ -8,6 +8,8 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import EditView, { GET_BOOK, EDIT_BOOK } from './EditView';
 
+console.warn = () => {};
+
 const getMockBook = () => {
   return {
     bookId: faker.random.number(),
