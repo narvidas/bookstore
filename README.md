@@ -32,7 +32,11 @@ git clone https://github.com/narvidas/bookstore.git
 npm i
 ```
 
-#### 2. Run the App
+#### 2. Ensure GraphQL Endpoint is correct
+
+Under `./src/App.jsx` ensure `uri` is pointing to your backend endpoint.
+
+#### 3. Run the App
 
 ```bash
 npm start
