@@ -6,7 +6,10 @@ import { CreateView } from './views/CreateView';
 import { EditView } from './views/EditView';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({
+  dataIdFromObject: o => o.bookId,
+});
+
 const client = new ApolloClient({
   uri: 'http://localhost:4567/graphql',
   cache,
