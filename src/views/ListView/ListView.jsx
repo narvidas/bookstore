@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, memo } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import List from '@material-ui/core/List';
@@ -18,7 +18,7 @@ export const GET_BOOKS = gql`
   }
 `;
 
-export const ListView = ({ history }) => {
+export const ListView = memo(({ history }) => {
   const { loading, error, data, refetch } = useQuery(GET_BOOKS);
   const [selectedBooks, setSelectedBooks] = useState([]);
 
@@ -48,6 +48,6 @@ export const ListView = ({ history }) => {
       </List>
     </>
   );
-};
+});
 
 export default ListView;

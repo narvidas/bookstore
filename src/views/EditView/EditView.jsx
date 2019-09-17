@@ -48,7 +48,7 @@ export const EditView = memo(({ match, history }) => {
       setAuthor(author);
       setPrice(price);
     }
-  }, [getBookResult.data]);
+  }, [getBookResult]);
 
   const goHome = () => history.push('/');
 
