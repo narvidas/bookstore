@@ -42,7 +42,7 @@ Under `./src/App.jsx` ensure `uri` is pointing to your backend endpoint.
 npm start
 ```
 
-#### 3. Test the App
+#### 4. Test the App
 
 ```bash
 npm run test
