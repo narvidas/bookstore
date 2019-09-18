@@ -24,7 +24,7 @@ export const ListView = memo(({ history }) => {
 
   useEffect(() => {
     refetch();
-  }, []);
+  }, [refetch]);
 
   const handleSelect = book => {
     const bookSet = new Set(selectedBooks);
